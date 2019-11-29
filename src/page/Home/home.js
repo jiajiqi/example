@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './home.less'
 import { Layout, Row, Col, Input, Carousel, Icon, Button, Rate } from 'antd';
 
-var HomeCss = require('./home.css')
+// var HomeCss = require('./home.css')
 export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <div className={HomeCss.headline}>
+                <div className="headline">
                     <Row type="flex" justify="space-around">
                         <Col span={24}></Col>
                     </Row>
                 </div>
-                <div>
+                <div className="firstline">
                     <Row>
                         <Col span={3}></Col>
                         <Col span={2}>名称</Col>
@@ -41,6 +42,7 @@ export default class Home extends React.Component {
                             </Link>
                         </Col>
                         <Col span={1}>
+                           
                         </Col>
                         <Col span={1}>
                             <Link>
@@ -49,10 +51,10 @@ export default class Home extends React.Component {
                         </Col>
                     </Row>
                 </div>
-                <div className={HomeCss.secondline}>
+                <div className="secondline">
                     <Row>
                     <Col span={24}>
-                    <Carousel autoplay className={HomeCss.l}>
+                    <Carousel autoplay className="l">
                         <div>
                            <img src="/taylor.jpg" width={'100%'} height={380}></img>
                         </div>
@@ -69,37 +71,37 @@ export default class Home extends React.Component {
                     </Col>
                     </Row>
                 </div>
-                <div className={HomeCss.lastline}>
+                <div className="lastline">
                     <Row>
                     <Col span={2}></Col>
                     <Col span={5}>
-                    <div className={HomeCss.phone}>
-                            <Icon type="home" style={{fontSize:'40px'}} className={HomeCss.phone1}/>
-                            <p >我的首页</p>
+                    <div className="phone">
+                            <Icon type="home" style={{fontSize:'40px'}} className="phone1"/>
+                            <p>&nbsp;&nbsp;&nbsp;首&nbsp;页</p>
                         </div>
                     </Col>
                     <Col span={5}>
-                        <div className={HomeCss.phone}>
-                            <Icon type="user" style={{fontSize:'40px'}} className={HomeCss.phone1}/>
+                        <div className="phone">
+                            <Icon type="user" style={{fontSize:'40px'}} className="phone1"/>
                             <p >个人主页</p>
                         </div>
                     </Col>
                     <Col span={5}>
-                    <div className={HomeCss.phone}>
-                            <Icon type="sketch" style={{fontSize:'40px'}} className={HomeCss.phone1}/>
+                    <div className="phone">
+                            <Icon type="sketch" style={{fontSize:'40px'}} className="phone1"/>
                             <p >会员中心</p>
                         </div>
                     </Col>
                     <Col span={5}>
-                        <div className={HomeCss.phone}>
-                            <Icon type="phone" style={{fontSize:'40px'}} className={HomeCss.phone1}/>
+                        <div className="phone">
+                            <Icon type="phone" style={{fontSize:'40px'}} className="phone1"/>
                             <p >在线客服</p>
                         </div>
                     </Col>
                     <Col span={2}></Col>
                     </Row>
                 </div>
-                <div className={HomeCss.addline}>
+                <div className="addline">
                     <Row>
                     <Col span={24}></Col>
                     </Row>

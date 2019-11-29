@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import './login.less'
+import 'antd/dist/antd.css'
 
-var LoginCss = require('./login.css')
+// var LoginCss = require('./login.css')
 export default class Login extends Component{
     render(){
         return(
-            <div className={LoginCss.login}>
-                <header className={LoginCss.header}></header>
-                <section className={LoginCss.content}>
+            <div className="login">
+                <header className="header"></header>
+                <section className="content">
                     <h2>用户登录</h2>
                     <Form onSubmit={this.handleSubmit} className="login-form">
                         <Form.Item>
@@ -23,11 +25,11 @@ export default class Login extends Component{
                                     placeholder="密码"
                                 />
                         </Form.Item>
-                        <Button type="primary" htmlType="submit" className={LoginCss.b1}>
+                        <Button type="primary" htmlType="submit" className="b1">
                                 登录
                             </Button>
                         <Form.Item >
-                            <Checkbox className={LoginCss.item3}>记住我</Checkbox>
+                            <Checkbox className="item3">记住我</Checkbox>
                             <a className="login-form-forgot" href="">忘记密码</a>
                         </Form.Item>
                     </Form>
