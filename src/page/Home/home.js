@@ -41,7 +41,6 @@ export default class Home extends React.Component {
                             </Link>
                         </Col>
                         <Col span={1}>
-                            <p>|</p>
                         </Col>
                         <Col span={1}>
                             <Link>
@@ -76,7 +75,7 @@ export default class Home extends React.Component {
                     <Col span={5}>
                     <div className={HomeCss.phone}>
                             <Icon type="home" style={{fontSize:'40px'}} className={HomeCss.phone1}/>
-                            <p >首页</p>
+                            <p >我的首页</p>
                         </div>
                     </Col>
                     <Col span={5}>

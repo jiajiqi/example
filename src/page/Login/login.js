@@ -23,7 +23,7 @@ export default class Login extends Component{
                                     placeholder="密码"
                                 />
                         </Form.Item>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
+                        <Button type="primary" htmlType="submit" className={LoginCss.b1}>
                                 登录
                             </Button>
                         <Form.Item >
