@@ -129,11 +129,11 @@ class RegistrationForm extends React.Component {
       <Form {...formItemLayout} onSubmit={this.handleSubmit} className="form">
         <h2>用户注册</h2>
         <Form.Item label="用户名">
-          {getFieldDecorator('email', {
+          {getFieldDecorator('contant', {
             rules: [
               {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
+                type: 'contant',
+                message: 'The input is not valid contant!',
               },
               {
                 required: true,
