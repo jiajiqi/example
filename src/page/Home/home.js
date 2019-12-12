@@ -8,12 +8,12 @@ const menu = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-               <Link to='/login'>学生</Link> 
+               <Link to='/auth/login'>学生</Link> 
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            <Link to='/login'>教师</Link> 
+            <Link to='/auth/login'>教师</Link> 
         </a>
         </Menu.Item>
     </Menu>
@@ -22,12 +22,12 @@ const menu1 = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-               <Link to='/register'>学生</Link> 
+               <Link to='/auth/register'>学生</Link> 
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            <Link to='/register'>教师</Link> 
+            <Link to='/auth/register'>教师</Link> 
         </a>
         </Menu.Item>
     </Menu>
@@ -115,7 +115,7 @@ export default class Home extends React.Component {
                         <Col span={5}>
                             <div className="phone">
                                 <Icon type="user" style={{ fontSize: '40px' }} className="phone1" />
-                                <p >个人主页</p>
+                                <p >个人中心</p>
                             </div>
                         </Col>
                         <Col span={5}>
@@ -133,11 +133,28 @@ export default class Home extends React.Component {
                         <Col span={2}></Col>
                     </Row>
                 </div>
+                <div className="next">
+                    <h2>我们的服务</h2>
+                    <div className="part"><p>简历诊断</p></div>
+                    <div className="part"><p>简历制作</p></div>
+                    <div className="part"><p>面试礼仪</p></div>
+                    <div className="part"><p>面试形象</p></div>
+                    <div className="part"><p>面试常见“坑”</p></div>
+                    <div className="part"><p>面试技巧</p></div>
+                    <div className="part"><p>模拟面试</p></div>
+                    <div className="part"><p>法律援助</p></div>
+                    
+                </div>
+                <div className="news">
+                    <h2>新闻资讯</h2>
+                    <hr/>
+                </div>
                 <div className="addline">
                     <Row>
                         <Col span={24}></Col>
                     </Row>
                 </div>
+               
             </div >
 
 
