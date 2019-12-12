@@ -7,11 +7,7 @@
     "@svgr/webpack": "4.3.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
-<<<<<<< HEAD
-    "axios": "^0.19.0",
-=======
     "antd": "^3.25.3",
->>>>>>> e731439243231dcea67b55ffc5afa62f3b475a2d
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",

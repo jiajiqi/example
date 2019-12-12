@@ -8,12 +8,12 @@ const menu = (
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-               <Link to='/login'>学生</Link> 
+               <Link to='/auth/login'>学生</Link> 
         </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            <Link to='/login'>教师</Link> 
+            <Link to='/auth/login'>教师</Link> 
         </a>
         </Menu.Item>
     </Menu>

@@ -5,7 +5,7 @@ import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import Home from './page/Home/home';
 import Login from './page/Login/login';
-import RegistrationForm from './page/Home/Register/register';
+import RegistrationForm from './page/Register/register';
 
 class IndexPage extends React.Component{
     render(){
@@ -14,7 +14,7 @@ class IndexPage extends React.Component{
                 <BrowserRouter>
                     <Switch>
                     <Route path="/home" exact component={Home}></Route>
-                    <Route path="/login" component={Login}></Route>
+                    <Route path="/auth/login" component={Login}></Route>
                     <Route path="/register" component={RegistrationForm}></Route>
                     <Redirect to="/home"></Redirect>
                     </Switch>
