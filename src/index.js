@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Home from './page/Home/home';
 import Login from './page/Login/login';
 import Register from './page/Register/register';
-
+import MyselfPage from './page/Myself/myself'
 class IndexPage extends React.Component{
     render(){
         return(
@@ -16,6 +16,7 @@ class IndexPage extends React.Component{
                     <Route path="/home" exact component={Home}></Route>
                     <Route path="/auth/login" component={Login}></Route>
                     <Route path="/auth/register" component={Register}></Route>
+                    <Route path="/myself" component={MyselfPage}></Route>
                     <Redirect to="/home"></Redirect>
                     </Switch>
                 </BrowserRouter>

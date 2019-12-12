@@ -7,28 +7,28 @@ import { Menu, Dropdown, Button } from 'antd';
 const menu = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+           
                <Link to='/auth/login'>学生</Link> 
-        </a>
+        
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+            
             <Link to='/auth/login'>教师</Link> 
-        </a>
+        
         </Menu.Item>
     </Menu>
 );
 const menu1 = (
     <Menu>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+           
                <Link to='/auth/register'>学生</Link> 
-        </a>
+        
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+           
             <Link to='/auth/register'>教师</Link> 
-        </a>
+      
         </Menu.Item>
     </Menu>
 );
@@ -115,7 +115,7 @@ export default class Home extends React.Component {
                         <Col span={5}>
                             <div className="phone">
                                 <Icon type="user" style={{ fontSize: '40px' }} className="phone1" />
-                                <p >个人中心</p>
+                                <Link to="./myself"><p>个人中心</p></Link>
                             </div>
                         </Col>
                         <Col span={5}>
