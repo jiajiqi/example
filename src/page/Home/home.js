@@ -73,6 +73,7 @@ export default class Home extends React.Component {
                             </Dropdown>
                         </Col>
                         <Col span={1}>
+                            <p> | </p>
                         </Col>
                         <Col span={1}>
                         <Dropdown overlay={menu1} placement="bottomLeft">
@@ -135,19 +136,23 @@ export default class Home extends React.Component {
                 </div>
                 <div className="next">
                     <h2>我们的服务</h2>
+                    <hr/>
+
                     <div className="part"><p>简历诊断</p></div>
                     <div className="part"><p>简历制作</p></div>
                     <div className="part"><p>面试礼仪</p></div>
-                    <div className="part"><p>面试形象</p></div>
+                    <div className="part"><p>面试测试</p></div>
                     <div className="part"><p>面试常见“坑”</p></div>
-                    <div className="part"><p>面试技巧</p></div>
+                    <div className="part">
+                        <Link to='/interview'><p>面试技巧</p></Link>
+                        </div>
                     <div className="part"><p>模拟面试</p></div>
                     <div className="part"><p>法律援助</p></div>
-                    
                 </div>
                 <div className="news">
                     <h2>新闻资讯</h2>
                     <hr/>
+                    <div>简历秘籍</div>
                 </div>
                 <div className="addline">
                     <Row>

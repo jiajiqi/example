@@ -7,6 +7,8 @@ import Home from './page/Home/home';
 import Login from './page/Login/login';
 import Register from './page/Register/register';
 import MyselfPage from './page/Myself/myself'
+import InterviewPage from './page/Interview/interview'
+import Content1 from './page/Content/content1'
 class IndexPage extends React.Component{
     render(){
         return(
@@ -17,6 +19,8 @@ class IndexPage extends React.Component{
                     <Route path="/auth/login" component={Login}></Route>
                     <Route path="/auth/register" component={Register}></Route>
                     <Route path="/myself" component={MyselfPage}></Route>
+                    <Route path="/interview" component={InterviewPage}></Route>
+                    <Route path="/content1" component={Content1}></Route>
                     <Redirect to="/home"></Redirect>
                     </Switch>
                 </BrowserRouter>

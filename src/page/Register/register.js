@@ -61,11 +61,8 @@ class Register extends React.Component {
         reqRegister().then(response => {
           console.log('success', response.data)
         }).catch(error => {
-          // console.log('fail', error)
-          if (account === 'teacher') { //判断并返回结果
-            console.log('该用户名已经存在');
-          } else
-            console.log('注册成功');
+           console.log('fail', error)
+          
         })
       } else {
         console.log('失败')
@@ -96,43 +93,6 @@ class Register extends React.Component {
     }
     callback();
   };
-
-  // register =() =>{
-  //   const account=this.account.value;
-  //   const password=this.password.value;
-  //   const confirm=this.confirm.value;
-  //   const residence=this.residence.value;
-  //   let account1=localStorage.getItem('account');
-
-  //   if(account1){
-  //     //通过数据库存储判断是否已经存在该用户，如果account1存在则证明已有用户注册
-  //     account1=JSON.parse(account1)
-
-  //     if(account1.account===account){
-  //       alert('该用户名已经存在')
-  //     }else{
-
-  //     }
-  //   }else{
-  //     localStorage.setItem('account',JSON.stringify({account,password,confirm,residence}))
-  //   }
-  // }
-
-  // state={
-  //   account:'',
-  //   password:'',
-  //   comfire:'',
-  //   residence:'',
-  //   role:'',
-  // }
-  // register = () =>{
-  //   console.log(this.state)
-  // }
-  // handleChange=(name,val)=>{
-  //   this.setState({
-  //     [name]:val
-  //   })
-  // }
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -236,6 +196,7 @@ class Register extends React.Component {
     );
   }
 }
-export default Form.create()(Register);
-const WrapRegister = Form.create({ name: 'register' })(Register);
+//包装From 组件 生成一个新的组件  高阶组件 高阶函数
+const WrapRegister = Form.create()(Register);
+export default WrapRegister;
 

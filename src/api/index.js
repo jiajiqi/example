@@ -7,3 +7,4 @@ export const reqLogin = (account,password) => ajax('/auth/login',{account,passwo
 //注册
 export const reqRegister = (account,password,confirm,residence) =>ajax('/auth/register',{account,password,confirm,residence},'POST')
 //添加用户
+ export const reqAddUser=(user)=>ajax('',user,'POST')
