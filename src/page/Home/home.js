@@ -139,7 +139,9 @@ export default class Home extends React.Component {
                     <hr/>
 
                     <div className="part"><p>简历诊断</p></div>
-                    <div className="part"><p>简历制作</p></div>
+                    <div className="part">
+                      <Link to='/content2'> <p>简历制作</p></Link> 
+                        </div>
                     <div className="part"><p>面试礼仪</p></div>
                     <div className="part"><p>面试测试</p></div>
                     <div className="part"><p>面试常见“坑”</p></div>

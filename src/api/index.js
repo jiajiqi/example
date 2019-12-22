@@ -5,6 +5,7 @@ import ajax from './ajax'
 //登录接口
 export const reqLogin = (account,password) => ajax('/auth/login',{account,password},'POST')
 //注册
+
 export const reqRegister = (account,password,confirm,residence) =>ajax('/auth/register',{account,password,confirm,residence},'POST')
 //添加用户
  export const reqAddUser=(user)=>ajax('',user,'POST')

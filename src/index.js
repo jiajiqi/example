@@ -9,6 +9,7 @@ import Register from './page/Register/register';
 import MyselfPage from './page/Myself/myself'
 import InterviewPage from './page/Interview/interview'
 import Content1 from './page/Content/content1'
+import EditorConvertToHTML from './page/Content/content2'
 class IndexPage extends React.Component{
     render(){
         return(
@@ -21,6 +22,8 @@ class IndexPage extends React.Component{
                     <Route path="/myself" component={MyselfPage}></Route>
                     <Route path="/interview" component={InterviewPage}></Route>
                     <Route path="/content1" component={Content1}></Route>
+                    <Route path="/content2" component={EditorConvertToHTML}></Route>
+                   
                     <Redirect to="/home"></Redirect>
                     </Switch>
                 </BrowserRouter>
