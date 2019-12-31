@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox, message, Radio, Row, Col } from 'antd';
+import img from './img/4.png'
+import suit from './img/西装.jpg'
 import './login.less'
 import 'antd/dist/antd.css'
 import { reqLogin } from '../../api'
@@ -53,8 +55,23 @@ class Login extends Component {
 
         return (
             <div className="login">
-                <header className="header"></header>
+                <header className="headerz">
+                    <Row type="flex" justify="space-around">
+                        <Col span={24} className="lina"></Col>
+                    </Row>
+                    <Row type="flex" justify="space-around">
+                        <Col span={5}></Col>
+                        <Col span={12}>商学院</Col>
+                        <Col span={7}>
+                                
+                        </Col>
+                    </Row>
+                </header>
                 <section className="content">
+                    <div className="right">
+                        <img src={suit} ></img>
+                    </div>
+                    <div className="left">
                     <h2>用户登录</h2>
                     <Radio.Group onChange={this.onChange} value={this.state.value}>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,13 +119,14 @@ class Login extends Component {
                             <a className="login-form-forgot" href="">忘记密码</a>
                         </Form.Item>
                     </Form>
+                    </div>
                 </section>
-                <div className="bigword">
-                    sdfk
-                </div>
+                
                 <div className="line">
                     <Row>
-                        <Col span={24}></Col>
+                        <Col span={24}>
+                        <img src={img} height={500}></img>
+                        </Col>
                     </Row>
                 </div>
                 <div className="addline">

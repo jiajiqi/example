@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Home from './page/Home/home';
 import Login from './page/Login/login';
 import RegistrationForm from './page/Register/register';
+import Diagnosis from './page/Diagnosis/diagnosis';
 
 class IndexPage extends React.Component{
     render(){
@@ -15,7 +16,8 @@ class IndexPage extends React.Component{
                     <Switch>
                     <Route path="/home" exact component={Home}></Route>
                     <Route path="/auth/login" component={Login}></Route>
-                    <Route path="/register" component={RegistrationForm}></Route>
+                    <Route path="/diagnosis" component={Diagnosis}></Route>
+                    <Route path="/auth/register" component={RegistrationForm}></Route>
                     <Redirect to="/home"></Redirect>
                     </Switch>
                 </BrowserRouter>
@@ -23,7 +25,6 @@ class IndexPage extends React.Component{
         )
     }
 }
-
 ReactDOM.render(<IndexPage />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

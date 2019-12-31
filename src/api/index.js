@@ -1,4 +1,4 @@
-//包含应用中所有接口的请求函数的模块
+//包含应用中所有 接口的请求函数的模块
 import ajax from './ajax'
 const BASE = ''
 

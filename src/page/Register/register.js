@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   Form,
   Input,
@@ -6,35 +6,36 @@ import {
   Select,
   Button,
   AutoComplete,
+  Radio,
 } from 'antd';
 import './register.less'
+import { reqRegist } from '../../api'
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
-
 const residences = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: '四川',
+    label: '四川',
     children: [
       {
-        value: 'hangzhou',
-        label: 'Hangzhou',
+        value: '成都',
+        label: '成都',
         children: [
           {
-            value: 'xihu',
-            label: 'West Lake',
+            value: '金堂',
+            label: '金堂',
           },
         ],
       },
     ],
   },
   {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+    value: '重庆',
+    label: '重庆',
     children: [
       {
-        value: 'nanjing',
-        label: 'Nanjing',
+        value: '解放碑',
+        label: '解放碑',
         children: [
           {
             value: 'zhonghuamen',
@@ -46,21 +47,34 @@ const residences = [
   },
 ];
 
-class RegistrationForm extends React.Component {
+class Register extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
   };
-
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        const { account, password, confirm, residence } = values
+        reqRegist().then(response => {
+          console.log('success', response.data)
+        }).catch(error => {
+          // console.log('fail', error)
+          if (account === 'teacher') { //判断并返回结果
+            console.log('该用户名已经存在');
+          } else
+            console.log('注册成功');
+        })
+      } else {
+        console.log('失败')
       }
     });
+    const form = this.props.form
+    const values = form.getFieldsvalue
+    console.log('handleSubmit()', values)
   };
-
   handleConfirmBlur = e => {
     const { value } = e.target;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
@@ -69,7 +83,7 @@ class RegistrationForm extends React.Component {
   compareToFirstPassword = (rule, value, callback) => {
     const { form } = this.props;
     if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
+      callback('您输入的密码两次不一致!');
     } else {
       callback();
     }
@@ -83,20 +97,45 @@ class RegistrationForm extends React.Component {
     callback();
   };
 
-  handleWebsiteChange = value => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  };
+  // register =() =>{
+  //   const account=this.account.value;
+  //   const password=this.password.value;
+  //   const confirm=this.confirm.value;
+  //   const residence=this.residence.value;
+  //   let account1=localStorage.getItem('account');
 
+  //   if(account1){
+  //     //通过数据库存储判断是否已经存在该用户，如果account1存在则证明已有用户注册
+  //     account1=JSON.parse(account1)
+
+  //     if(account1.account===account){
+  //       alert('该用户名已经存在')
+  //     }else{
+
+  //     }
+  //   }else{
+  //     localStorage.setItem('account',JSON.stringify({account,password,confirm,residence}))
+  //   }
+  // }
+
+  // state={
+  //   account:'',
+  //   password:'',
+  //   comfire:'',
+  //   residence:'',
+  //   role:'',
+  // }
+  // register = () =>{
+  //   console.log(this.state)
+  // }
+  // handleChange=(name,val)=>{
+  //   this.setState({
+  //     [name]:val
+  //   })
+  // }
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
-
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -119,21 +158,15 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-  
-
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
-
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit} className="form">
         <h2>用户注册</h2>
-        <Form.Item label="用户名">
-          {getFieldDecorator('email', {
+        <Form.Item label="用户名" >
+          {getFieldDecorator('account', {
             rules: [
               {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
+                type: 'contant',
+                message: '您输入的账户无效!',
               },
               {
                 required: true,
@@ -142,7 +175,7 @@ class RegistrationForm extends React.Component {
             ],
           })(<Input />)}
         </Form.Item>
-        <Form.Item label="密码" hasFeedback>
+        <Form.Item label="密码" hasFeedback >
           {getFieldDecorator('password', {
             rules: [
               {
@@ -150,12 +183,21 @@ class RegistrationForm extends React.Component {
                 message: '请输入你的密码!',
               },
               {
+                min: 4, message: '密码至少4位'
+              },
+              {
+                max: 12, message: '密码至多12位'
+              },
+              {
+                pattern: /^[a-zA-Z0-9]+$/, message: '密码必须是数字或英文组成'
+              },
+              {
                 validator: this.validateToNextPassword,
               },
             ],
           })(<Input.Password />)}
         </Form.Item>
-        <Form.Item label="确认密码" hasFeedback>
+        <Form.Item label="确认密码" hasFeedback >
           {getFieldDecorator('confirm', {
             rules: [
               {
@@ -168,26 +210,32 @@ class RegistrationForm extends React.Component {
             ],
           })(<Input.Password onBlur={this.handleConfirmBlur} />)}
         </Form.Item>
-        
-        <Form.Item label="所在地">
+
+        <Form.Item label="所在地" onChange={val=>{this.handleChange('residence',val)}}>
           {getFieldDecorator('residence', {
-            initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+            initialValue: ['四川', '成都', '隆昌'],
             rules: [
               { type: 'array', required: true, message: '请选择你的所在地!' },
             ],
           })(<Cascader options={residences} />)}
         </Form.Item>
+        <Form.Item label="用户类型" >
+        <Radio.Group name="radiogroup" >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Radio value={1} >学生</Radio>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Radio value={2} >老师</Radio>
+          </Radio.Group>
+        </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-           注&nbsp;&nbsp;&nbsp;册
+          <Button type="primary" htmlType="submit" onClick={this.register}>
+            注&nbsp;&nbsp;&nbsp;册
           </Button>
         </Form.Item>
       </Form>
     );
   }
 }
-
-
-export default Form.create()(RegistrationForm);
-const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
+export default Form.create()(Register);
+const WrapRegister = Form.create({ name: 'register' })(Register);
 
