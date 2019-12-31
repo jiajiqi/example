@@ -7,20 +7,42 @@ import { Menu, Dropdown, Button } from 'antd';
 const menu = (
     <Menu>
         <Menu.Item>
+<<<<<<< HEAD
                <Link to='/auth/login'>学生</Link> 
         </Menu.Item>
         <Menu.Item>
             <Link to='/auth/login'>教师</Link> 
+=======
+           
+               <Link to='/auth/login'>学生</Link> 
+        
+        </Menu.Item>
+        <Menu.Item>
+            
+            <Link to='/auth/login'>教师</Link> 
+        
+>>>>>>> a97deb384b1b6eb222fdef3fa8d48ac3daff1a3b
         </Menu.Item>
     </Menu>
 );
 const menu1 = (
     <Menu>
         <Menu.Item>
+<<<<<<< HEAD
                <Link to='/auth/register'>学生</Link> 
         </Menu.Item>
         <Menu.Item>
             <Link to='/auth/register'>教师</Link> 
+=======
+           
+               <Link to='/auth/register'>学生</Link> 
+        
+        </Menu.Item>
+        <Menu.Item>
+           
+            <Link to='/auth/register'>教师</Link> 
+      
+>>>>>>> a97deb384b1b6eb222fdef3fa8d48ac3daff1a3b
         </Menu.Item>
     </Menu>
 );
@@ -65,6 +87,7 @@ export default class Home extends React.Component {
                             </Dropdown>
                         </Col>
                         <Col span={1}>
+                            <p> | </p>
                         </Col>
                         <Col span={1}>
                         <Dropdown overlay={menu1} placement="bottomLeft">
@@ -107,7 +130,7 @@ export default class Home extends React.Component {
                         <Col span={5}>
                             <div className="phone">
                                 <Icon type="user" style={{ fontSize: '40px' }} className="phone1" />
-                                <p >个人中心</p>
+                                <Link to="./myself"><p>个人中心</p></Link>
                             </div>
                         </Col>
                         <Col span={5}>
@@ -127,19 +150,30 @@ export default class Home extends React.Component {
                 </div>
                 <div className="next">
                     <h2>我们的服务</h2>
+<<<<<<< HEAD
                     <Link to="/diagnosis"><div className="part"><p>简历诊断</p></div></Link>
                     <div className="part"><p>简历制作</p></div>
+=======
+                    <hr/>
+
+                    <div className="part"><p>简历诊断</p></div>
+                    <div className="part">
+                      <Link to='/content2'> <p>简历制作</p></Link> 
+                        </div>
+>>>>>>> a97deb384b1b6eb222fdef3fa8d48ac3daff1a3b
                     <div className="part"><p>面试礼仪</p></div>
-                    <div className="part"><p>面试形象</p></div>
+                    <div className="part"><p>面试测试</p></div>
                     <div className="part"><p>面试常见“坑”</p></div>
-                    <div className="part"><p>面试技巧</p></div>
+                    <div className="part">
+                        <Link to='/interview'><p>面试技巧</p></Link>
+                        </div>
                     <div className="part"><p>模拟面试</p></div>
                     <div className="part"><p>法律援助</p></div>
-                    
                 </div>
                 <div className="news">
                     <h2>新闻资讯</h2>
                     <hr/>
+                    <div>简历秘籍</div>
                 </div>
                 <div className="addline">
                     <Row>

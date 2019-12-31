@@ -18,6 +18,12 @@ class IndexPage extends React.Component{
                     <Route path="/auth/login" component={Login}></Route>
                     <Route path="/diagnosis" component={Diagnosis}></Route>
                     <Route path="/auth/register" component={RegistrationForm}></Route>
+                    <Route path="/auth/register" component={Register}></Route>
+                    <Route path="/myself" component={MyselfPage}></Route>
+                    <Route path="/interview" component={InterviewPage}></Route>
+                    <Route path="/content1" component={Content1}></Route>
+                    <Route path="/content2" component={EditorConvertToHTML}></Route>
+                   
                     <Redirect to="/home"></Redirect>
                     </Switch>
                 </BrowserRouter>
